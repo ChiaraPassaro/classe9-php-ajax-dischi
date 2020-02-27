@@ -2,9 +2,11 @@ const $ = require('jquery');
 const Handlebars = require("handlebars");
 
 $(document).ready(function(){
+  console.log(window.location.protocol + '//' + window.location.host + '/php-ajax-dischi/server.php');
+  
   //alert('Ciao');
   $.ajax({
-    url: 'http://localhost:8888/php-ajax-dischi/server.php',
+    url: window.location.protocol + '//' + window.location.host + '/php-ajax-dischi/server.php',
     method: 'GET',
     success: function(data){
       console.log(data);
