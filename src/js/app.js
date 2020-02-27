@@ -20,7 +20,24 @@ $(document).ready(function(){
   });
 
   printSelect();
-
+  $('#search-cd').change(function(){
+    var author = $(this).val();
+    $.ajax({
+      url: 'http://localhost:8888/php-ajax-dischi/server.php',
+      method: 'GET',
+      data: {
+        'author': author
+      },
+      success: function (data) {
+        console.log(data);
+        $('.cds').html('');
+        printData(data);
+      },
+      error: function () {
+        alert('Errore');
+      }
+    });
+  });
 });
 
 function printData(data){
